@@ -2,29 +2,26 @@
   (:require [clojure.java.io :as io]
             [clojure.string :refer [split]]))
 
+
+(def tree "#")
+(def right-factor 3)
+
 (defn- input []
    (with-open [rdr (io/reader "input")]
      (vec (line-seq rdr))))
 
-(defn- count-occurrences 
-  [c s] 
-  (-> s
-      (split #"")
-      (->> (filter #(= c %)))
-      count))
-
-(defn- parse [line]
-  (re-matches #"(\d+)-(\d+) (.): (.+)" line))
-
-(defn valid? [line]
-  (let [[_ min max chr pwd] (parse line)
-        min (Integer. min)
-        max (Integer. max)]
-    (<= min (count-occurrences chr pwd) max)))
+(defn- tree? 
+  [row-number row]
+  (let [row-length (count row)
+        x-position (mod (* right-factor row-number) row-length)
+        chr (get row x-position)]
+    (= chr tree)))
 
 (defn solve [input]
   (->> input
-       (filter valid?)
+       (map #(split % #""))
+       (map-indexed tree?)
+       (filter true?)
        count))
 
 (println (solve (input)))
