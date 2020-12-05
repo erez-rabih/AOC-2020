@@ -3,7 +3,7 @@
             [clojure.string :refer [split]]))
 
 (defn- input []
-   (with-open [rdr (io/reader "day2.input")]
+   (with-open [rdr (io/reader "input")]
      (vec (line-seq rdr))))
 
 (defn- parse [line]

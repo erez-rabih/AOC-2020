@@ -1,9 +1,9 @@
-(ns aoc2020-day2-pt1
+(ns aoc2020-day3-pt1
   (:require [clojure.java.io :as io]
             [clojure.string :refer [split]]))
 
 (defn- input []
-   (with-open [rdr (io/reader "day2.input")]
+   (with-open [rdr (io/reader "input")]
      (vec (line-seq rdr))))
 
 (defn- count-occurrences 
