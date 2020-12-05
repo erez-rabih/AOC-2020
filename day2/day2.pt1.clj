@@ -3,7 +3,7 @@
             [clojure.string :refer [split]]))
 
 (defn- input []
-   (with-open [rdr (io/reader "day2.pt1.input")]
+   (with-open [rdr (io/reader "day2.input")]
      (vec (line-seq rdr))))
 
 (defn- count-occurrences 
