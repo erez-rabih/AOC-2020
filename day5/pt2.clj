@@ -25,10 +25,6 @@
   (let [v (subvec characters 7)]
     (find-in-range v 0 7 "L" "R")))
 
-(row-number (clojure.string/split "FBFBBFFRLR" #""))
-(column-number (clojure.string/split "FBFBBFFRLR" #""))
-
-
 (defn seat-id [code]
   (let [characters (split code #"")]
     (+ (column-number characters) 
