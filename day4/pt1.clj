@@ -11,7 +11,6 @@
 
 (defn- parse-single-passport 
   [s]
-  (println "passport" s)
   (into {} (map #(clojure.string/split % #":") (clojure.string/split s #" "))))
 
 (defn to-passports [input]
